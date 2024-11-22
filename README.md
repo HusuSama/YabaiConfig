@@ -16,6 +16,45 @@ brew install jq
 brew install koekeishiya/formulae/skhd
 ```
 
+## 环境配置
+
+### yabai
+
+关闭系统完整性配置可以获得更多功能（System Integrity Protection）
+
+- 关闭设备
+- 按住 `command + r`
+- 按住电源键，直到出现 `loading` 之类的标志
+- 点击 `Options` ，点击 `continue`
+- 在菜单中，选择 `Utilities` - `Terminal`
+- 配置
+```bash
+#
+# APPLE SILICON
+#
+
+# If you're on Apple Silicon macOS 13.x.x OR newer
+# Requires Filesystem Protections, Debugging Restrictions and NVRAM Protection to be disabled
+# (printed warning can be safely ignored)
+csrutil enable --without fs --without debug --without nvram
+
+# If you're on Apple Silicon macOS 12.x.x
+# Requires Filesystem Protections, Debugging Restrictions and NVRAM Protection to be disabled
+# (printed warning can be safely ignored)
+csrutil disable --with kext --with dtrace --with basesystem
+
+#
+# INTEL
+#
+
+# If you're on Intel macOS 11.x.x OR newer
+# Requires Filesystem Protections and Debugging Restrictions to be disabled (workaround because --without debug does not work)
+# (printed warning can be safely ignored)
+csrutil disable --with kext --with dtrace --with nvram --with basesystem
+```
+- 重启设备
+- 使用命令 `csrutil status` 来验证是否禁用
+
 ## yabai 配置文件
 
 yabai 配置文件路径默认如下
