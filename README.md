@@ -1,9 +1,29 @@
 # YabaiConfig
 Mac平铺配置
 
+## 环境安装
+
+yabai安装
+
+```bash
+brew install koekeishiya/formulae/yabai
+```
+
+skhd和依赖安装
+
+```bash
+brew install jq
+brew install koekeishiya/formulae/skhd
+```
+
 ## yabai 配置文件
 
-> 文件保存在用户目录下，文件名称为 `.yabairc`
+yabai 配置文件路径默认如下
+
+- `$XDG_CONFIG_HOME/yabai/yabairc`
+- `$HOME/.config/yabai/yabairc`
+- `$HOME/.yabairc`
+
 
 ```bash
 # 新建窗口显示在哪个显示器
@@ -116,4 +136,63 @@ yabai -m rule --add app="^WeChat$" manage=of
 yabai -m rule --add app="^微信$" manage=off
 
 echo "yabai config loaded"
+```
+
+## skhd配置文件
+
+skhd 配置文件可以在用户目录下，也可以存放在 `.config` 目录
+
+- `$XDG_CONFIG_HOME/skhd/skhdrc`
+- `~/.config/skhd/skhdrc`
+- `~/.skhdrc
+
+```bash
+# 切换显示器
+cmd + ctrl + shift - j: yabai -m display --focus next
+cmd + ctrl + shift - k: yabai -m display --focus prev
+
+# 切换工作空间
+cmd + ctrl - k: yabai -m space --focus prev
+cmd + ctrl - j: yabai -m space --focus next
+
+# 创建/销毁工作空间
+cmd + ctrl - n: yabai -m space --create
+cmd + ctrl - x: yabai -m space --destroy
+
+# 窗口切换
+cmd - h: yabai -m window --focus west
+cmd - l: yabai -m window --focus east
+cmd - j: yabai -m window --focus south
+cmd - k: yabai -m window --focus north
+cmd - right: yabai -m window --focus west
+cmd - left: yabai -m window --focus east
+cmd - down: yabai -m window --focus south
+cmd - up: yabai -m window --focus north
+
+# 窗口移动/交换
+cmd + alt - j: yabai -m window --swap south
+cmd + alt - k: yabai -m window --swap north
+cmd + alt - h: yabai -m window --swap west
+cmd + alt - l: yabai -m window --swap east
+cmd + alt - down: yabai -m window --swap south
+cmd + alt - up: yabai -m window --swap north
+cmd + alt - left: yabai -m window --swap west
+cmd + alt - right: yabai -m window --swap east
+
+# 移动窗口到其他工作空间
+cmd + shift - k: yabai -m window --space prev
+cmd + shift - j: yabai -m window --space next
+cmd + shift - h: yabai -m window --space prev
+cmd + shift - l: yabai -m window --space next
+cmd + shift - up: yabai -m window --space prev
+cmd + shift - down: yabai -m window --space next
+cmd + shift - left: yabai -m window --space prev
+cmd + shift - right: yabai -m window --space next
+
+# 关闭窗口
+cmd - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+
+# ========= applications=========
+# 使用 cmd + \ 启动 wezterm
+cmd - 0x2A : wezterm
 ```
