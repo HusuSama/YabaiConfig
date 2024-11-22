@@ -132,8 +132,9 @@ yabai -m rule --add app="^Feishu$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Lark$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Lark Meetings$" sticky=on layer=above manage=off
 yabai -m rule --add app="^AppCleaner$" sticky=off layer=above manage=off
-yabai -m rule --add app="^WeChat$" manage=of
+yabai -m rule --add app="^WeChat$" manage=off
 yabai -m rule --add app="^微信$" manage=off
+yabai -m rule --add app="^utools$" manage=off
 
 echo "yabai config loaded"
 ```
