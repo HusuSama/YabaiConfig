@@ -104,12 +104,12 @@ yabai -m config mouse_drop_action    swap
 # - float: 浮动
 yabai -m config layout    bsp
 # 窗口和屏幕边缘的距离
-yabai -m config top_padding    08
-yabai -m config bottom_padding    08
-yabai -m config left_padding    08
-yabai -m config right_padding    08
+yabai -m config top_padding    10
+yabai -m config bottom_padding    10
+yabai -m config left_padding    10
+yabai -m config right_padding    10
 # 窗口之间的间距
-yabai -m config window_gap    05
+yabai -m config window_gap    10
 
 # manage: 是否使用 yabai 管理
 # - on
