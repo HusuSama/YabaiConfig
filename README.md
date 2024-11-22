@@ -147,7 +147,7 @@ skhd 配置文件可以在用户目录下，也可以存放在 `.config` 目录
 
 - `$XDG_CONFIG_HOME/skhd/skhdrc`
 - `~/.config/skhd/skhdrc`
-- `~/.skhdrc
+- `~/.skhdrc`
 
 ```bash
 # 切换显示器
