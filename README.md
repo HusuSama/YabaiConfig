@@ -114,13 +114,13 @@ yabai -m config window_gap    05
 # manage: 是否使用 yabai 管理
 # - on
 # - off
-# sticky: 是否总是置顶
+# sticky: 窗口是否要显示在所有工作空间
 # - on
 # - off
-# layer:
-# - below
-# - normal
-# - above
+# layer: 显示层级
+# - below: 之下
+# - normal: 普通
+# - above: 之上
 
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
@@ -128,13 +128,15 @@ yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^飞书$" sticky=on layer=above manage=off
+yabai -m rule --add app="^飞连$" sticky=on manage=off
 yabai -m rule --add app="^Feishu$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Lark$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Lark Meetings$" sticky=on layer=above manage=off
 yabai -m rule --add app="^AppCleaner$" sticky=off layer=above manage=off
 yabai -m rule --add app="^WeChat$" manage=off
 yabai -m rule --add app="^微信$" manage=off
-yabai -m rule --add app="^utools$" manage=off
+yabai -m rule --add app="^uTools$" sticky=on layer=above manage=off
+yabai -m rule --add app="^网易有道翻译$" manage=off
 
 echo "yabai config loaded"
 ```
